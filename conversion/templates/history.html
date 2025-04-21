@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  History
+{% endblock %}
+
+{% block head %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/history.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="history-page container">
+  <h1>Conversion History</h1>
+
+  <div class="table-wrapper">
+    <table class="table table-hover table-dark table-bordered shadow">
+      <thead class="thead-purple">
+        <tr>
+          <th scope="col">Type</th>
+          <th scope="col">Original File</th>
+          <th scope="col">Converted File</th>
+          <th scope="col">Time</th>
+          <th scope="col">Options</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for file in files %}
+          <tr>
+            <td>{{ file.convert_type }}</td>
+            <td>{{ file.original_file }}</td>
+            <td>{{ file.converted_file }}</td>
+            <td>{{ file.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+            <td>
+              <button class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#Modal-MoreInfo-{{ file.id }}">Delete</button>
+              <button class="btn btn-purple-outline btn-sm" data-toggle="modal" data-target="#Modal-Download-{{ file.id }}">Download</button>
+            </td>
+          </tr>
+          {% include 'includes/delete_modal.html' %}
+          {% include 'includes/download_modal.html' %}
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,128 @@
+body {
+    background-color: #212121;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .translate-page {
+    max-width: 1000px;
+    margin: 4rem auto;
+    padding: 2rem;
+    background-color: #2a2a2a;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  }
+  
+  .page-title {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .page-description {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #ccc;
+  }
+  
+  .translate-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .textareas-wrapper {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  
+  .textarea-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+  }
+  
+  .textarea-wrapper label {
+    font-size: 1rem;
+    color: #ccc;
+    margin-bottom: 0.5rem;
+  }
+  
+  .styled-textarea {
+    height: 300px;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid #4f4f4f;
+    background-color: #3a3a3a;
+    color: white;
+    resize: vertical;
+    font-size: 1rem;
+    overflow-y: auto;
+    line-height: 1.5;
+    transition: all 0.2s ease;
+  }
+  
+  .styled-textarea:focus {
+    outline: none;
+    border-color: #82589F;
+    box-shadow: 0 0 0 2px rgba(130, 88, 159, 0.3);
+  }
+  
+  .styled-textarea[readonly] {
+    cursor: default;
+  }
+  
+  .output-header {
+    margin-bottom: 0.5rem;
+  }
+  
+  .btn-copy {
+    background-color: #82589F;
+    color: white;
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    border: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-copy:hover {
+    background-color: #833471;
+  }
+  
+  .copy-status {
+    color: #A891CC;
+    font-size: 0.85rem;
+    opacity: 0;
+    margin-right: 0.75rem;
+    transition: opacity 0.3s ease;
+  }
+  
+  .copy-status.show {
+    opacity: 1;
+  }
+  
+  .btn-purple {
+    background-color: #82589F;
+    color: white;
+    font-weight: bold;
+    padding: 0.6rem 1.5rem;
+    border-radius: 6px;
+    border: none;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-purple:hover {
+    background-color: #833471;
+  }
+
+  .copy-glow {
+    border: 2px solid #A891CC;
+    box-shadow: 0 0 8px #A891CC;
+    transition: all 0.2s ease;
+  }

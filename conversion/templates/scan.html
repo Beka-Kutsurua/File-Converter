@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Scan Page
+{% endblock %}
+
+{% block head %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/scan.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="scan-page container">
+  <h1 class="page-title">Image to Text Scanner</h1>
+
+  <div class="scan-layout">
+    <!-- LEFT: Upload Form -->
+    <form method="POST" enctype="multipart/form-data" class="scan-form" id="drop-area">
+      <label for="image" class="drop-label">
+        <div class="drop-zone" id="drop-zone">
+          <p>Drag & drop<br>or click to upload</p>
+          <input type="file" name="image" id="image" accept="image/*" required>
+        </div>
+      </label>
+      <button type="submit" class="btn btn-purple mt-3">Scan</button>
+    </form>
+
+    <!-- RIGHT: Output + Copy -->
+    <div class="scan-output">
+      <div class="output-header d-flex justify-content-between align-items-center">
+        <label for="output_text">Extracted Text</label>
+        {% if extracted_text %}
+        <div class="copy-group d-flex align-items-center">
+          <span id="copy-status" class="copy-status">Copied</span>
+          <button type="button" class="btn btn-sm btn-copy" onclick="copyText()">Copy</button>
+        </div>
+        {% endif %}
+      </div>
+      <textarea id="output_text" class="output-textarea styled-textarea" readonly rows="20">{% if extracted_text %}{{ extracted_text }}{% endif %}</textarea>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Drag & drop behavior
+  const dropZone = document.getElementById('drop-zone');
+  const fileInput = document.getElementById('image');
+
+  dropZone.addEventListener('click', () => fileInput.click());
+
+  dropZone.addEventListener('dragover', (e) => {
+    e.preventDefault();
+    dropZone.classList.add('dragover');
+  });
+
+  dropZone.addEventListener('dragleave', () => {
+    dropZone.classList.remove('dragover');
+  });
+
+  dropZone.addEventListener('drop', (e) => {
+    e.preventDefault();
+    dropZone.classList.remove('dragover');
+    if (e.dataTransfer.files.length) {
+      fileInput.files = e.dataTransfer.files;
+    }
+  });
+
+  // Copy to clipboard
+  function copyText() {
+    const output = document.getElementById("output_text");
+    const copyStatus = document.getElementById("copy-status");
+
+    navigator.clipboard.writeText(output.value)
+      .then(() => {
+        copyStatus.classList.add("show");
+        output.classList.add("copy-glow");
+        setTimeout(() => {
+          copyStatus.classList.remove("show");
+          output.classList.remove("copy-glow");
+        }, 500);
+      })
+      .catch(err => {
+        console.error("Copy failed:", err);
+      });
+  }
+
+  // Optional: Keyboard shortcut (Ctrl + C to copy if output is focused)
+  document.addEventListener("keydown", function (e) {
+    if (e.ctrlKey && e.key.toLowerCase() === "c") {
+      const output = document.activeElement;
+      if (output.id === "output_text") {
+        e.preventDefault();
+        copyText();
+      }
+    }
+  });
+</script>
+{% endblock %}

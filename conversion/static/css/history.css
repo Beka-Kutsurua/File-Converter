@@ -1,0 +1,86 @@
+body {
+    background-color: #212121;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+.history-page {
+padding: 2rem;
+max-width: 1000px;
+margin: auto;
+text-align: center;
+}
+
+.history-page h1 {
+font-size: 2.5rem;
+font-weight: bold;
+color: white;
+margin-bottom: 2rem;
+}
+
+.table-wrapper {
+overflow-x: auto;
+}
+
+.table {
+border-radius: 12px;
+overflow: hidden;
+}
+
+.table th,
+.table td {
+vertical-align: middle;
+font-size: 0.95rem;
+}
+
+.thead-purple th {
+background-color: #82589F;
+border-color: #6f4790;
+color: white;
+}
+
+.btn-purple-outline {
+border: 1px solid #82589F;
+color: #82589F;
+background-color: transparent;
+transition: all 0.3s ease;
+}
+
+.btn-purple-outline:hover {
+background-color: #833471;
+color: white;
+border-color: #833471;
+}
+
+.btn-purple {
+    background-color: #82589F;
+    border: none;
+    color: white;
+    font-weight: bold;
+    padding: 0.5rem 1.25rem;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+  }
+  
+  .btn-purple:hover {
+    background-color: #833471;
+    color: white;
+    text-decoration: none;
+  }
+  
+  .btn-outline-light {
+    border: 1px solid #aaa;
+    color: white;
+    background-color: transparent;
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-outline-light:hover {
+    background-color: #333;
+    color: white;
+    border-color: #555;
+  }
+  

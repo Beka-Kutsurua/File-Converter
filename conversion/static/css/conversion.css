@@ -1,0 +1,183 @@
+body {
+  background-color: #212121;
+  color: white;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.conversion-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background-color: #212121;
+}
+
+.conversion-page h1 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #fff;
+}
+
+.conversion-form {
+  background-color: #2a2a2a;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 450px;
+  gap: 1.5rem;
+}
+
+.conversion-form label {
+  font-size: 1rem;
+  color: #ccc;
+}
+
+/* Custom Dropdown */
+.custom-dropdown {
+  position: relative;
+  background-color: #3a3a3a;
+  border: 1px solid #4f4f4f;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  user-select: none;
+  font-size: 1rem;
+}
+
+.custom-dropdown-selected {
+  padding: 0.6rem;
+}
+
+.custom-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  max-height: 150px;
+  overflow-y: auto;
+  background-color: #2a2a2a;
+  border: 1px solid #4f4f4f;
+  border-top: none;
+  border-radius: 0 0 6px 6px;
+  z-index: 10;
+}
+
+.custom-dropdown-menu div {
+  padding: 0.6rem;
+  transition: background-color 0.2s ease;
+}
+
+.custom-dropdown-menu div:hover {
+  background-color: #82589F;
+}
+
+/* Show dropdown */
+.custom-dropdown-menu.show {
+  display: block;
+}
+
+/* Scrollbar */
+.custom-dropdown-menu::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-dropdown-menu::-webkit-scrollbar-track {
+  background: #2a2a2a;
+}
+.custom-dropdown-menu::-webkit-scrollbar-thumb {
+  background-color: #82589F;
+  border-radius: 4px;
+}
+
+/* Drag & drop */
+.file-drop-area {
+  position: relative;
+  border: 2px dashed #82589F;
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  background-color: #3a3a3a;
+  transition: border-color 0.3s ease;
+}
+
+.file-drop-area:hover,
+.file-drop-area.drag-over {
+  border-color: #833471;
+}
+
+.file-msg {
+  font-size: 0.95rem;
+  color: #ccc;
+}
+
+.file-input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.conversion-form button {
+  background-color: #82589F;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 6px;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.conversion-form button:hover {
+  background-color: #833471;
+}
+
+.error-message {
+  color: #ff4d4f;
+  margin-top: 1rem;
+  font-size: 0.95rem;
+}
+
+.conversion-success-box {
+  margin-top: 1.5rem;
+  background-color: #2a2a2a;
+  padding: 1.25rem;
+  border-left: 4px solid #4CAF50;
+  border-radius: 8px;
+  color: #e0ffe0;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  text-align: center;
+}
+
+.conversion-success-box p {
+  margin: 0 0 1rem;
+  font-size: 1rem;
+  color: #b9ffb9;
+}
+
+.download-button {
+  display: inline-block;
+  background-color: #82589F;
+  color: white;
+  text-decoration: none;
+  padding: 0.75rem 1.25rem;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 0.95rem;
+  transition: background-color 0.3s ease;
+}
+
+.download-button:hover {
+  background-color: #833471;
+  color: white;
+  text-decoration: none;
+}

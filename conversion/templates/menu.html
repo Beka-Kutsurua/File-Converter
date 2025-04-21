@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Menu Page
+{% endblock %}
+
+{% block head %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/menu.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="menu-page">
+  <h1>Select an Option</h1>
+  <div class="card-container">  
+    <a href="{{ url_for('conversion_page') }}" class="card">Convert</a>
+    <a href="{{ url_for('translate_page') }}" class="card">Convert Text</a>
+    <a href="{{ url_for('scan_page') }}" class="card">Scan</a>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,49 @@
+body {
+    background-color: #212121;
+    color: white;
+  }
+  
+  .login-page .container {
+    max-width: 400px;
+    margin: 100px auto;
+    text-align: left;
+  }
+  
+  .form-signin {
+    background-color: #2A2A2A;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .form-control {
+    background-color: #3a3a3a;
+    border: 1px solid #4f4f4f;
+    color: white;
+    margin-bottom: 15px;
+  }
+  
+  .form-control::placeholder {
+    color: #ccc;
+  }
+  
+  .btn-primary {
+    background-color: #82589F !important;
+    border-color: #82589F !important;
+  }
+  
+  .btn-primary:hover {
+    background-color: #833471 !important;
+    border-color: #833471 !important;
+  }
+  
+  .btn-secondary {
+    background-color: #9C8FC0 !important;
+    border-color: #9C8FC0 !important;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #A891CC !important;
+    border-color: #A891CC !important;
+  }
+  

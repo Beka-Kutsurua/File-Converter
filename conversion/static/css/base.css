@@ -1,0 +1,115 @@
+body {
+  background-color: #212121;
+  color: white;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-purple {
+  background-color: #82589F;
+}
+
+/* Flash Messages */
+.flash-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 1rem;
+}
+
+.alert {
+  border: none !important;
+  border-radius: 8px !important;
+  background-color: #232531 !important;
+  color: #fff !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.75rem;
+  display: inline-flex;
+  max-width: 400px;
+  transition: opacity 1s ease-out;
+}
+
+.alert-text {
+  font-size: 0.9rem;
+}
+
+.alert-danger {
+  border-left: 4px solid #d65563 !important;
+}
+
+.alert-success {
+  border-left: 4px solid #4CAF50 !important;
+}
+
+.close-btn {
+  color: #999 !important;
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+}
+
+.close-btn:hover {
+  color: #fff !important;
+}
+
+/* Navbar Links */
+.navbar .nav-item .nav-link {
+  color: #ddd;
+  transition: color 0.2s ease;
+}
+
+.navbar .nav-item .nav-link:hover {
+  color: white;
+}
+
+.navbar .nav-item.active .nav-link {
+  color: white;
+  font-weight: bold;
+}
+
+/* Dropdown Styling */
+.dropdown-parent {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 200px;
+  background-color: rgba(42, 42, 42, 0.95);
+  backdrop-filter: blur(6px);
+  border: 1px solid #4f4f4f;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+  z-index: 1000;
+  padding: 0.5rem 0;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.25s ease-in-out;
+}
+
+.dropdown-parent:hover .dropdown-content {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 0.6rem 1rem;
+  color: #ccc;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease, padding-left 0.2s;
+  font-size: 0.95rem;
+}
+
+.dropdown-content a:hover {
+  background-color: #82589F;
+  color: white;
+  padding-left: 1.25rem;
+  border-left: 3px solid #A891CC;
+}

@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Conversion Page
+{% endblock %}
+
+{% block head %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/conversion.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="conversion-page">
+  <h1>Convert a File</h1>
+
+  <form action="/conversion" method="POST" enctype="multipart/form-data" class="conversion-form">
+    <label for="convert_type">Conversion Type</label>
+  
+    <div class="custom-dropdown">
+      <div class="custom-dropdown-selected" onclick="toggleDropdown()">Select Conversion Type</div>
+      <div class="custom-dropdown-menu" id="dropdownMenu">
+        <div data-value="docx-to-pdf">DOCX to PDF</div>
+        <div data-value="pdf-to-docx">PDF to DOCX</div>
+        <div data-value="pdf-to-pptx">PDF to PPTX</div>
+        <div data-value="pdf-to-jpg">PDF to JPG</div>
+        <div data-value="pdf-to-png">PDF to PNG</div>
+        <div data-value="jpg-to-pdf">JPG to PDF</div>
+        <div data-value="png-to-pdf">PNG to PDF</div>
+        <div data-value="jpg-to-png">JPG to PNG</div>
+        <div data-value="png-to-jpg">PNG to JPG</div>
+      </div>
+    </div>
+  
+    <input type="hidden" name="convert_type" id="conversionType">
+  
+    <label for="fileInput">Choose file</label>
+    <div class="file-drop-area" id="fileDropArea">
+      <span id="file-msg" class="file-msg">Drag & drop or click to choose a file</span>
+      <input type="file" name="file" id="fileInput" class="file-input" multiple />
+    </div>
+  
+    <button type="submit">Convert</button>
+  </form>
+
+  {% if error %}
+    <p class="error-message">{{ error }}</p>
+  {% endif %}
+
+  {% if converted_file %}
+    <div class="conversion-success-box">
+      <p>File converted successfully!</p>
+      <a class="download-button" href="{{ url_for('static', filename='converted/' + converted_file) }}" download>
+        Download {{ converted_file }}
+      </a>
+    </div>
+  {% endif %}
+</div>
+
+<!-- JS for custom dropdown + drag and drop -->
+<script>
+  function toggleDropdown() {
+    document.getElementById("dropdownMenu").classList.toggle("show");
+  }
+
+  document.querySelectorAll(".custom-dropdown-menu div").forEach(item => {
+    item.addEventListener("click", function () {
+      document.querySelector(".custom-dropdown-selected").textContent = this.textContent;
+      document.getElementById("conversionType").value = this.getAttribute("data-value");
+      document.getElementById("dropdownMenu").classList.remove("show");
+    });
+  });
+
+  document.addEventListener("click", function (e) {
+    if (!e.target.closest(".custom-dropdown")) {
+      document.getElementById("dropdownMenu").classList.remove("show");
+    }
+  });
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const fileInput = document.getElementById("fileInput");
+    const fileMsg = document.getElementById("file-msg");
+    const dropArea = document.getElementById("fileDropArea");
+
+    dropArea.addEventListener("click", () => fileInput.click());
+
+    fileInput.addEventListener("change", function () {
+      const count = fileInput.files.length;
+      if (count === 0) {
+        fileMsg.textContent = "Drag & drop or click to choose a file";
+      } else if (count === 1) {
+        fileMsg.textContent = "1 file selected";
+      } else {
+        fileMsg.textContent = `${count} files selected`;
+      }
+    });
+
+    dropArea.addEventListener("dragover", (e) => {
+      e.preventDefault();
+      dropArea.classList.add("drag-over");
+    });
+
+    dropArea.addEventListener("dragleave", () => {
+      dropArea.classList.remove("drag-over");
+    });
+
+    dropArea.addEventListener("drop", (e) => {
+      e.preventDefault();
+      dropArea.classList.remove("drag-over");
+      if (e.dataTransfer.files.length > 0) {
+        fileInput.files = e.dataTransfer.files;
+        fileInput.dispatchEvent(new Event("change"));
+      }
+    });
+  });
+</script>
+{% endblock %}

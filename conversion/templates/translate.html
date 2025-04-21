@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Transliterate Page
+{% endblock %}
+
+{% block head %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/translate.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="translate-page container">
+  <h1 class="page-title">Transliterate</h1>
+  <p class="page-description">Transliterate Latin text to Georgian Unicode</p>
+
+  <div class="translate-form">
+    <div class="textareas-wrapper">
+      <!-- Input Field -->
+      <div class="textarea-wrapper">
+        <label for="input_text">Input Text</label>
+        <textarea id="input_text" class="styled-textarea" required></textarea>
+      </div>
+
+      <!-- Output Field -->
+      <div class="textarea-wrapper">
+        <div class="output-header d-flex justify-content-between align-items-center">
+          <label for="output_text">Output Text</label>
+          <div class="copy-group d-flex align-items-center">
+            <span id="copy-status" class="copy-status">Copied</span>
+            <button type="button" class="btn btn-sm btn-copy" onclick="copyText()">Copy</button>
+          </div>
+        </div>
+        <textarea id="output_text" class="styled-textarea" readonly></textarea>
+      </div>
+    </div>
+
+    <div class="text-center mt-4">
+      <button onclick="translateText()" class="btn btn-purple">Convert</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  function copyText() {
+    const output = document.getElementById("output_text");
+    const copyStatus = document.getElementById("copy-status");
+
+    navigator.clipboard.writeText(output.value)
+      .then(() => {
+        copyStatus.classList.add("show");
+        output.classList.add("copy-glow");
+
+        setTimeout(() => {
+          copyStatus.classList.remove("show");
+          output.classList.remove("copy-glow");
+        }, 500);
+      })
+      .catch(err => {
+        console.error("Copy failed:", err);
+      });
+  }
+
+  function translateText() {
+    const input = document.getElementById("input_text").value;
+
+    fetch("{{ url_for('translate_api') }}", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ input_text: input })
+    })
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById("output_text").value = data.translated_text || "";
+    });
+  }
+
+  // Keyboard shortcuts
+  document.addEventListener("keydown", function (e) {
+    if (e.ctrlKey && e.key === "Enter") {
+      e.preventDefault();
+      translateText();
+    }
+
+    if (e.ctrlKey && e.key.toLowerCase() === "c") {
+      const output = document.activeElement;
+      if (output.id === "output_text") {
+        e.preventDefault();
+        copyText();
+      }
+    }
+  });
+</script>
+{% endblock %}
