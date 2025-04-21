@@ -1,0 +1,12 @@
+Flask
+Flask-SQLAlchemy
+Flask-Bcrypt
+Flask-Login
+Flask-WTF
+WTForms
+docx2pdf ; sys_platform == "win32"
+pdf2docx
+PyMuPDF
+Pillow
+python-pptx
+easyocr
