@@ -34,7 +34,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 2.5rem; /* aligned lower to match textarea */
+    margin-top: 2.5rem;
   }
   
   .drop-zone {
@@ -83,7 +83,6 @@ body {
     background-color: #833471;
   }
   
-  /* Output Section */
   .scan-output {
     flex: 1;
     min-width: 400px;
@@ -145,7 +144,6 @@ body {
     min-height: 300px;
   }
   
-  /* Glow effect when copied */
   .copy-glow {
     border: 2px solid #A891CC;
     box-shadow: 0 0 8px #A891CC;

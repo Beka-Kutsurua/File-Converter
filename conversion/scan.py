@@ -1,9 +1,7 @@
-# conversion/scan.py
 import easyocr
 import os
 
-# Initialize reader once (outside function to avoid reloading every call)
-reader = easyocr.Reader(['en'])  # Add more languages if needed
+reader = easyocr.Reader(['en'])
 
 def extract_text(image_path):
     try:

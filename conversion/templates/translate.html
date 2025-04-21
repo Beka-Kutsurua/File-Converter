@@ -15,13 +15,11 @@
 
   <div class="translate-form">
     <div class="textareas-wrapper">
-      <!-- Input Field -->
       <div class="textarea-wrapper">
         <label for="input_text">Input Text</label>
         <textarea id="input_text" class="styled-textarea" required></textarea>
       </div>
 
-      <!-- Output Field -->
       <div class="textarea-wrapper">
         <div class="output-header d-flex justify-content-between align-items-center">
           <label for="output_text">Output Text</label>
@@ -76,7 +74,6 @@
     });
   }
 
-  // Keyboard shortcuts
   document.addEventListener("keydown", function (e) {
     if (e.ctrlKey && e.key === "Enter") {
       e.preventDefault();

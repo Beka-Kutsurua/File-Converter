@@ -10,7 +10,6 @@ body {
   background-color: #82589F;
 }
 
-/* Flash Messages */
 .flash-container {
   display: flex;
   flex-direction: column;
@@ -54,7 +53,6 @@ body {
   color: #fff !important;
 }
 
-/* Navbar Links */
 .navbar .nav-item .nav-link {
   color: #ddd;
   transition: color 0.2s ease;
@@ -69,7 +67,6 @@ body {
   font-weight: bold;
 }
 
-/* Dropdown Styling */
 .dropdown-parent {
   position: relative;
 }

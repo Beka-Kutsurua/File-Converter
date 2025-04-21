@@ -159,7 +159,6 @@ def conversion_page():
 
                 return send_file(zip_path, as_attachment=True, download_name=zip_filename)
 
-            # ✅ ONLY ONE OUTPUT FILE: send directly
             else:
                 single_file_path = output_files[0]
                 input_file_path = input_paths[0] if option["multiple_inputs"] else input_path
@@ -244,7 +243,7 @@ def translate_api():
     translated = translate(input_text)
     return jsonify({"translated_text": translated})
 
-@app.route('/scan', methods=['GET', 'POST'])  # ✅ Add POST
+@app.route('/scan', methods=['GET', 'POST'])
 @login_required
 def scan_page():
     extracted_text = None

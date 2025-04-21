@@ -39,7 +39,6 @@ body {
   color: #ccc;
 }
 
-/* Custom Dropdown */
 .custom-dropdown {
   position: relative;
   background-color: #3a3a3a;
@@ -79,12 +78,10 @@ body {
   background-color: #82589F;
 }
 
-/* Show dropdown */
 .custom-dropdown-menu.show {
   display: block;
 }
 
-/* Scrollbar */
 .custom-dropdown-menu::-webkit-scrollbar {
   width: 6px;
 }
@@ -96,7 +93,6 @@ body {
   border-radius: 4px;
 }
 
-/* Drag & drop */
 .file-drop-area {
   position: relative;
   border: 2px dashed #82589F;

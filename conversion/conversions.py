@@ -103,7 +103,7 @@ def pdf_to_pptx(input_pdf_path, output_path):
     presentation = Presentation()
     blank_slide_layout = presentation.slide_layouts[6]
 
-    temp_images = []  # Track temp files to delete later
+    temp_images = []
 
     for page_num in range(len(doc)):
         page = doc.load_page(page_num)
