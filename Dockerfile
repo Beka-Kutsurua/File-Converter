@@ -1,4 +1,4 @@
-FROM python:3.11-slim
+FROM ghcr.io/python/cpython:3.11-slim
 
 WORKDIR /app
 
