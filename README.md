@@ -1,4 +1,3 @@
-
 # 🗂️ Flask File Converter Web Application
 
 A web-based file converter built with Flask. It supports document and image format conversion, OCR-based text extraction, and English-to-Georgian transliteration — all through a clean, intuitive interface.
@@ -93,6 +92,12 @@ By default, the app runs at `http://127.0.0.1:5000/`
 ```bash
 docker build -t flask-file-converter .
 ```
+
+> ⚠️ **Having trouble building the image?**  
+> Try running this instead:
+> ```bash
+> docker build -t username/filename:0.0.1.RELEASE .
+> ```
 
 #### 2. Run the container
 
